@@ -1,0 +1,27 @@
+[19 Sep 17 20:50:31] [0;36manvio[0m ..............................: [0;33m2.4.0[0m
+[19 Sep 17 20:50:31] [0;36mprofiler_version[0m ...................: [0;33m20[0m
+[19 Sep 17 20:50:31] [0;36msample_id[0m ..........................: [0;33mLF_M01_SAMPLE[0m
+[19 Sep 17 20:50:31] [0;36mdescription[0m ........................: [0;33mNone[0m
+[19 Sep 17 20:50:31] [0;36mprofile_db[0m .........................: [0;33m/Users/allenzhu/Google Drive/[Rotation_Meren-and-Pan]/HF-LF-tRNA-PROFILES/output-directory1/PROFILE.db[0m
+[19 Sep 17 20:50:31] [0;36mcontigs_db[0m .........................: [0;33mTrue[0m
+[19 Sep 17 20:50:31] [0;36mcontigs_db_hash[0m ....................: [0;33me1b2d769[0m
+[19 Sep 17 20:50:31] [0;36mcmd_line[0m ...........................: [0;33m/usr/local/bin/anvi-profile -i output-LF-ref-bowtie/LF-M01-sample.bam -c contigs.db --min-contig-length 0 --output-dir output-directory1[0m
+[19 Sep 17 20:50:31] [0;36mmerged[0m .............................: [0;33mFalse[0m
+[19 Sep 17 20:50:31] [0;36mblank[0m ..............................: [0;33mFalse[0m
+[19 Sep 17 20:50:31] [0;36msplit_length[0m .......................: [0;33m20,000[0m
+[19 Sep 17 20:50:31] [0;36mmin_contig_length[0m ..................: [0;33m0[0m
+[19 Sep 17 20:50:31] [0;36mmin_mean_coverage[0m ..................: [0;33m0[0m
+[19 Sep 17 20:50:31] [0;36mclustering_performed[0m ...............: [0;33mFalse[0m
+[19 Sep 17 20:50:31] [0;36mmin_coverage_for_variability[0m .......: [0;33m10[0m
+[19 Sep 17 20:50:31] [0;36mskip_SNV_profiling[0m .................: [0;33mFalse[0m
+[19 Sep 17 20:50:31] [0;36mprofile_AA_frequencies[0m .............: [0;33mFalse[0m
+[19 Sep 17 20:50:31] [0;36mreport_variability_full[0m ............: [0;33mFalse[0m
+[19 Sep 17 20:50:31] [0;36minput_bam[0m ..........................: [0;33m/Users/allenzhu/Google Drive/[Rotation_Meren-and-Pan]/HF-LF-tRNA-PROFILES/output-LF-ref-bowtie/LF-M01-sample.bam[0m
+[19 Sep 17 20:50:31] [0;36moutput_dir[0m .........................: [0;33m/Users/allenzhu/Google Drive/[Rotation_Meren-and-Pan]/HF-LF-tRNA-PROFILES/output-directory1[0m
+[19 Sep 17 20:50:31] [0;36mtotal_reads_mapped[0m .................: [0;33m176,212[0m
+[19 Sep 17 20:50:31] [0;36mnum_contigs[0m ........................: [0;33m10[0m
+[19 Sep 17 20:50:31] [0;36mnum_contigs_after_M[0m ................: [0;33m10[0m
+[19 Sep 17 20:50:31] [0;36mnum_contigs[0m ........................: [0;33m10[0m
+[19 Sep 17 20:50:31] [0;36mnum_splits[0m .........................: [0;33m10[0m
+[19 Sep 17 20:50:31] [0;36mtotal_length[0m .......................: [0;33m772[0m
+[19 Sep 17 20:50:40] Bye.

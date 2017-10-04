@@ -1,0 +1,106 @@
+from os.path import join
+import csv
+
+# Globals -----------
+
+# Path to tRNA databases
+TRNA_DIR = './tRNA-db-profiles/'
+
+# Rules
+
+rule all:
+    input:
+        'changethislater.txt'
+
+rule extract_refs_from_db:
+    input:
+        'thedatabases'
+    output:
+        'a fasta file but without the ref headings'    
+    shell:
+        'sqlite3 tRNA-db-profiles/tRNA-HF-M01.db "select Seq from profile where Full_length = 'True' limit 10" > {output}'
+
+rule make_ref_fasta_file:
+    input:
+        'the ref sequences without the fasta headings'
+    output:
+        'the ref in fasta format'
+    run:
+        with open('{input}', 'rb') as file_ref:
+            refseqs = csv.reader(file_ref, delimiter = '\n')
+            n = 1
+            for r in refseqs:
+                print 
+        or sed something here
+
+rule mapping_index:
+    input:
+        'the original database'
+    output:
+        'all the sequences in a fasta file'
+    shell:
+        'sqlite3 ../../tRNA-db-profiles/{database} "select Seq from profile" > all-seq_LF-{samplename}.fa}'
+
+rule add_ref_headings:
+    input:
+        'all the sequences'
+    output:
+        'sequences in proper format'
+    rule:
+        sed something here
+
+rule map_reads_onto_refs:
+    input:
+        num_threads = 4
+        name_of_index = contigs-seed-index
+        all_the_sequences_fasta_file
+    output:
+        sam_file
+    shell:
+        'bowtie2 --threads num_threads -x NAMEOFINDEXHERE -f ALLSEQFASTAHERE -S SAMFILEHERE'
+
+rule sam_to_bam:
+    input:
+        SAMFILEHERE
+    output:
+        BAMFILERAW
+    shell:
+        'samtools view -F 4 -bS SAMFILEHERE > BAMRAWFILEOUTPUT'
+
+rule anvi_init_bam:
+    input:
+        BAMFILERAW
+    output:
+        BAMFILEPOLISHED
+    shell:
+        'anvi-init-bam RAWBAM -o POLISHEDBAM'
+
+rule remove_unncessary_files_maybeoptional:
+    input: 
+        NAMEOFINDEXHERE
+        nameofrawbamfile
+        nameofsamfile
+    shell:
+        'rm samfile rawbamfile indexfiles'
+
+rule anvi_gen_contigs_db:
+    input: 
+        REF.fasta
+    output:
+        REFDB
+    shell:
+        'anvi-gen-contigs-database -f reFFASTA -o ref_contigs.db'
+
+rule anvi_run_hmms_highly_recommended:
+    input:
+        TheREFCONTIGSdb
+    shell:
+        'anvi-run-hmms -c REFCONTIGSDb'
+
+rule anvi_profile:
+    input:
+        thebamfile
+        TheREFCONTIGSdb
+        mincontiglength = 0
+    shell:
+        'anvi-profile -i thebamfile -c TheREFCONTIGSdb -M mincontiglength'
